@@ -14,7 +14,7 @@ public:
 
 
 class Person : virtual public ISchoolMember { //виртуальные классы
-private: //инкапсуляция private/public
+protected: //инкапсуляция private/public
     std::string name;
     int age;
     //статическое поле для подсчёта
@@ -56,7 +56,7 @@ std::ostream& operator<<(std::ostream& os, const Person& p) {
 
 
 class Student : virtual public Person {
-private:
+protected:
     int grade;
 public:
     Student(const std::string& n, int a, int g) : Person(n, a), grade(g) {}
@@ -76,7 +76,7 @@ public:
 
 
 class Teacher: virtual public Person {
-private:
+protected:
     std::string subject;
 public:
     Teacher(const std::string& n, int a, const std::string& subj) : Person(n, a), subject(subj) {}
@@ -97,7 +97,7 @@ public:
 
 template<typename T>
 class SchoolGroup {
-private:
+protected:
     std::vector<T*> members;
 public:
     void add(T* member) {
